@@ -1,20 +1,26 @@
-import java.io.*;
 import java.util.*;
 
 public class Main {
     public static void main(String[] args) throws Exception {
 
 
+        String femaleFilePath = "female_name.txt";
+        String maleFilePath = "male_name.txt";
+        String mergedFilePath = "mergedNames.txt";
+        String surNameFilePath = "surname.txt";
 
-        System.out.println("name\n");
-        NameMerge.mergeAndShuffleNames("female_name.txt","male_name.txt", "mergedNames.txt");
-        NameMerge.readShuffledNames();
 
-        System.out.println();
+        List<String> shuffledNames = NameMerge.readShuffledNames(mergedFilePath);
+        List<String> surNames = Surname.getSurname(surNameFilePath);
+        int studentID = 1;
 
-        System.out.println("surname\n");
-        Surname.getSurname("surname.txt");
+        for (int i = 0; i < shuffledNames.size(); i++) {
+            System.out.println("ID" + " : " + studentID);
+            System.out.println("NAME" + " : " + shuffledNames.get(i));
+            System.out.println("SURNAME" + " : " + surNames.get(i));
 
+            studentID++;
+        }
 
 
     }

@@ -32,7 +32,7 @@ public class NameMerge {
         br.close();
     }
 
-    public static void readShuffledNames() throws IOException {
+    public static List<String> readShuffledNames(String mergedFilePath) throws IOException {
         List<String> names = new ArrayList<>();
 
         BufferedReader br = new BufferedReader(new FileReader("mergedNames.txt"));
@@ -45,16 +45,7 @@ public class NameMerge {
         // Shuffling the names
         Collections.shuffle(names);
 
-        // Write 5 shuffled names (you can adjust this number based on your requirements)
-        int count = 0;
-        Iterator<String> iterator = names.iterator();
-
-        while (iterator.hasNext() && count < 5) {
-            String shuffledName = iterator.next();
-            System.out.println(shuffledName);
-            count++;
-        }
-
         br.close();
+        return names;
     }
 }
