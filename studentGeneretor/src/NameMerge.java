@@ -6,14 +6,15 @@ public class NameMerge {
 
 
 
-    public static void mergeAndShuffleNames() throws IOException {
-        PrintWriter pw = new PrintWriter("mergedNames.txt");
+    public static void mergeAndShuffleNames(String femaleNameFilePath, String maleNameFilePath, String outFilePath) throws IOException {
+        FileWriter writer = new FileWriter(outFilePath,false);
+        PrintWriter pw = new PrintWriter(writer);
 
         // İlk dosyadan isimleri oku ve birleştir
-        mergeFileNames("C:\\Users\\Beyhan\\Desktop\\algo ass#3\\CENG303_Ass3\\female_name.txt", pw);
+        mergeFileNames(femaleNameFilePath, pw);
 
         // İkinci dosyadan isimleri oku ve birleştir
-        mergeFileNames("C:\\Users\\Beyhan\\Desktop\\algo ass#3\\CENG303_Ass3\\male_name.txt", pw);
+        mergeFileNames(maleNameFilePath, pw);
 
         pw.flush();
         pw.close();

@@ -3,8 +3,8 @@ import java.util.*;
 
 public class Surname {
 
-    public void surname()throws IOException{
-        File file = new File("C:\\Users\\Beyhan\\Desktop\\algo ass#3\\CENG303_Ass3\\surname.txt");
+    public static void getSurname(String surnameFilePath )throws IOException{
+        File file = new File(surnameFilePath);
         BufferedReader br = new BufferedReader(new FileReader(file));
 
 //        // Read all line and add the all of them in the ArrayList

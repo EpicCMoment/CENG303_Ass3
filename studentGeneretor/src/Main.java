@@ -7,15 +7,13 @@ public class Main {
 
 
         System.out.println("name\n");
-        NameMerge nameMerge = new NameMerge();
-        NameMerge.mergeAndShuffleNames();
+        NameMerge.mergeAndShuffleNames("female_name.txt","male_name.txt", "mergedNames.txt");
         NameMerge.readShuffledNames();
 
         System.out.println();
 
         System.out.println("surname\n");
-        Surname surname = new Surname();
-        surname.surname();
+        Surname.getSurname("surname.txt");
 
 
 
