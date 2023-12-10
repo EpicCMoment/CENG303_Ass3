@@ -6,12 +6,8 @@ public class Student {
     String department;
     String faculty;
 
-    public int getFirstHash(int limit) {
-        return ( ( (13 * this.ID) + 19 ) / 1001 ) % limit;
+    @Override
+    public int hashCode() {
+        return this.ID;
     }
-
-    public int getSecondHash(int limit) {
-        return ( ( (7 * this.ID) + 23 ) / 1001 ) % limit;
-    }
-
 }
