@@ -4,15 +4,12 @@ import java.io.*;
 
 public class NameMerge {
 
-
-
     public static void mergeAndShuffleNames(String femaleNameFilePath, String maleNameFilePath, String outFilePath) throws IOException {
         FileWriter writer = new FileWriter(outFilePath,false);
         PrintWriter pw = new PrintWriter(writer);
 
 
         mergeFileNames(femaleNameFilePath, pw);
-
 
         mergeFileNames(maleNameFilePath, pw);
 
@@ -41,7 +38,6 @@ public class NameMerge {
         while ((st = br.readLine()) != null) {
             names.add(st);
         }
-
 
         Collections.shuffle(names);
 
