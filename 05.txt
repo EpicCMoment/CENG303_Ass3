@@ -1,0 +1,9 @@
+37 Criminal Law
+38 Constitutional Law
+39 Administrative Law
+40 Civil Law
+41 Commercial Law
+42 International Law
+43 Human Rights Law
+44 Tax Law
+45 Public Law
