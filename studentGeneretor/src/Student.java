@@ -1,16 +1,15 @@
 public class Student {
 
-
-    private int ID;
     private String name;
     private String lastName;
+    private int ID;
     private String department;
     private String faculty;
 
-    public Student(int ID,String name, String lastName,  String department, String faculty) {
-        this.ID = ID;
+    public Student(String name, String lastName, int ID,  String department, String faculty) {
         this.name = name;
         this.lastName = lastName;
+        this.ID = ID;
         this.department = department;
         this.faculty = faculty;
     }
@@ -24,10 +23,10 @@ public class Student {
     public String toString() {
 
         String displayString = String.format(
-                        "ID: %d\n"
-                        +"Name: %s\n"
+                        "Name: %s\n"
                         + "Surname: %s\n"
-                        +  "Department: %s\n"
+                        + "ID: %d\n"
+                        + "Department: %s\n"
                         + "Faculty: %s\n",
                 this.ID,
                 this.name,
