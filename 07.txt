@@ -1,0 +1,9 @@
+55 Painting
+56 Sculpture
+57 Graphic Design
+58 Fashion Design
+59 Industrial Design
+60 Performing Arts
+61 Film and Television
+62 Music
+63 Photography

@@ -1,0 +1,9 @@
+10 Business Administration
+11 Economics
+12 Finance
+13 International Relations 
+14 Human Resources Management
+15 Marketing
+16 Econometrics
+17 Public Administration
+18 Political Science

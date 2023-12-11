@@ -1,0 +1,9 @@
+46 Medicine
+47 Dentistry
+48 Nursing
+49 Pharmacy
+50 Physiotherapy and Rehabilitation
+51 Nutrition and Dietetics
+52 Health Management
+53 Psychology
+54 Medical Biochemistry

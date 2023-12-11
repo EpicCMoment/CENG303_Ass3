@@ -13,8 +13,7 @@ public class Student {
         this.department = department;
         this.faculty = faculty;
     }
-
-
+  
     @Override
     public int hashCode() {
         return this.ID;
@@ -24,6 +23,7 @@ public class Student {
     public String toString() {
 
         String displayString = String.format(
+
                 "Name: %s\n"
                 + "Surname: %s\n"
                 + "ID: %d\n"
