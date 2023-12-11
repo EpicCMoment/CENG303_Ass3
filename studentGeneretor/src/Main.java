@@ -14,6 +14,8 @@ public class Main {
 
         NameMerge.mergeAndShuffleNames(femaleFilePath, maleFilePath, mergedFilePath);
 
+        NameMerge.mergeAndShuffleNames(femaleFilePath,maleFilePath,mergedFilePath);
+
         List<String> shuffledNames = NameMerge.readShuffledNames(mergedFilePath);
         List<String> surNames = Surname.getSurname(surNameFilePath);
         List<String> faculties = Faculty.getFaculty(facultyFilePath);
