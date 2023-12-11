@@ -10,10 +10,10 @@ public class NameMerge {
         FileWriter writer = new FileWriter(outFilePath,false);
         PrintWriter pw = new PrintWriter(writer);
 
-        // İlk dosyadan isimleri oku ve birleştir
+
         mergeFileNames(femaleNameFilePath, pw);
 
-        // İkinci dosyadan isimleri oku ve birleştir
+
         mergeFileNames(maleNameFilePath, pw);
 
         pw.flush();
@@ -42,7 +42,7 @@ public class NameMerge {
             names.add(st);
         }
 
-        // Shuffling the names
+
         Collections.shuffle(names);
 
         br.close();

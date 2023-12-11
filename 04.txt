@@ -1,0 +1,9 @@
+28 Physics
+29 Chemistry
+30 Biology
+31 Mathematics
+32 Astronomy and Space Sciences
+33 Statistics
+34 Molecular Biology and Genetics
+35 Environmental Sciences
+36 Geophysics
