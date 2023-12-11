@@ -21,22 +21,33 @@ public class Main {
         List<String> faculties = Faculty.getFaculty(facultyFilePath);
         List<String> departments;
 
-        for (int i = 0; i < shuffledNames.size(); i++) {
+
+        ArrayList<Student> studentsList = new ArrayList<>();
+
+        for (int i = 0; i < 81000; i++) {
             departments = Department.getDepartment(Faculty.faculties_string_array_codes[i % Faculty.faculties_string_array_codes.length]);
 
             int studentID = Integer.parseInt(IdGeneration.idGenerate(Faculty.faculties_string_codes, Department.departments_string_code));
 
             Student student = new Student(
-                    shuffledNames.get(i),
+                    shuffledNames.get(i % shuffledNames.size()),
                     surNames.get(i % surNames.size()),
                     studentID,
                     departments.get(i % departments.size()),
                     faculties.get(i % faculties.size())
             );
 
-            System.out.println(student);
-            System.out.println();
+            studentsList.add(student);
+
         }
+
+        ProbingHashMap<Student> probingMap = new ProbingHashMap<>();
+
+        for (var s : studentsList) {
+            probingMap.insert(s);
+        }
+
+
     }
 }
 

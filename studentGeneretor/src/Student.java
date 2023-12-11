@@ -2,7 +2,7 @@ public class Student {
 
     private String name;
     private String lastName;
-    private int ID;
+    public int ID;
     private String department;
     private String faculty;
 

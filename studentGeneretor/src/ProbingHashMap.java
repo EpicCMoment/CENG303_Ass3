@@ -63,6 +63,11 @@ public class ProbingHashMap <E> {
 
              probingCounter++;
 
+             if (secondHash == 0) {
+                 secondHash++;
+             }
+
+
          }
 
 
@@ -96,6 +101,9 @@ public class ProbingHashMap <E> {
 
             } else if (candidateSlot.status == NodeStatus.PREVIOUSLY_USED) {
                 probingCounter++;   // try next probe
+                if (secondHash == 0) {
+                    secondHash++;
+                }
 
             } else if (candidateSlot.key == key) {      // if this slot has the same key;
                 E item = candidateSlot.data;
@@ -135,11 +143,15 @@ public class ProbingHashMap <E> {
             if ( (storage[probingIndex] == null) || (storage[probingIndex].status == NodeStatus.EMPTY) ) {
                 return null;
 
-            } else if (candidateSlot.status == NodeStatus.PREVIOUSLY_USED) {
-                probingCounter++;   // try next probe
-
             } else if (candidateSlot.key == key) {      // if this slot has the same key;
                 return candidateSlot.data;              // we found the correct slot
+
+            } else {
+                probingCounter++;   // try next probe
+                if (secondHash == 0) {
+                    secondHash++;
+                }
+
             }
 
         }
