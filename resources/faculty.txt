@@ -1,9 +1,0 @@
-01 Faculty of Engineering
-02 Faculty of Economics and Administrative Sciences
-03 Faculty of Education
-04 Faculty of Science
-05 Faculty of Law
-06 Faculty of Health Sciences
-07 Faculty of Arts and Design
-08 Faculty of Communication
-09 Faculty of Agriculture and Natural Sciences
