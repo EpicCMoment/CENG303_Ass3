@@ -13,7 +13,7 @@ public class Department {
     public static List<String> getDepartment(String code) throws IOException {
         int number = Integer.parseInt(code);
 
-        String fileName = String.format("%02d.txt", number);
+        String fileName = String.format("resources/%02d.txt", number);
         File file = new File(fileName);
         BufferedReader br;
 

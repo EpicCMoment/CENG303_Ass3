@@ -3,11 +3,16 @@ import java.util.*;
 
 public class Main {
     public static void main(String[] args) throws Exception {
-        String femaleFilePath = "female_name.txt";
-        String maleFilePath = "male_name.txt";
-        String mergedFilePath = "mergedNames.txt";
-        String surNameFilePath = "surname.txt";
-        String facultyFilePath = "faculty.txt";
+
+        String resourceFolder = "resources/";
+
+        String femaleFilePath = resourceFolder + "female_name.txt";
+        String maleFilePath = resourceFolder + "male_name.txt";
+        String mergedFilePath = resourceFolder + "mergedNames.txt";
+        String surNameFilePath = resourceFolder + "surname.txt";
+        String facultyFilePath = resourceFolder + "faculty.txt";
+
+        NameMerge.mergeAndShuffleNames(femaleFilePath, maleFilePath, mergedFilePath);
 
         List<String> shuffledNames = NameMerge.readShuffledNames(mergedFilePath);
         List<String> surNames = Surname.getSurname(surNameFilePath);
@@ -20,9 +25,9 @@ public class Main {
             int studentID = Integer.parseInt(IdGeneration.idGenerate(Faculty.faculties_string_codes, Department.departments_string_code));
 
             Student student = new Student(
-                    studentID,
                     shuffledNames.get(i),
                     surNames.get(i % surNames.size()),
+                    studentID,
                     departments.get(i % departments.size()),
                     faculties.get(i % faculties.size())
             );

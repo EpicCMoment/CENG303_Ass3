@@ -32,7 +32,7 @@ public class NameMerge {
     public static List<String> readShuffledNames(String mergedFilePath) throws IOException {
         List<String> names = new ArrayList<>();
 
-        BufferedReader br = new BufferedReader(new FileReader("mergedNames.txt"));
+        BufferedReader br = new BufferedReader(new FileReader(mergedFilePath));
         String st;
 
         while ((st = br.readLine()) != null) {
