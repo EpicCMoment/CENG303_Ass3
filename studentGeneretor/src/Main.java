@@ -9,6 +9,8 @@ public class Main {
         String surNameFilePath = "surname.txt";
         String facultyFilePath = "faculty.txt";
 
+        NameMerge.mergeAndShuffleNames(femaleFilePath,maleFilePath,mergedFilePath);
+
         List<String> shuffledNames = NameMerge.readShuffledNames(mergedFilePath);
         List<String> surNames = Surname.getSurname(surNameFilePath);
         List<String> faculties = Faculty.getFaculty(facultyFilePath);
@@ -20,9 +22,10 @@ public class Main {
             int studentID = Integer.parseInt(IdGeneration.idGenerate(Faculty.faculties_string_codes, Department.departments_string_code));
 
             Student student = new Student(
-                    studentID,
+
                     shuffledNames.get(i),
                     surNames.get(i % surNames.size()),
+                    studentID,
                     departments.get(i % departments.size()),
                     faculties.get(i % faculties.size())
             );
