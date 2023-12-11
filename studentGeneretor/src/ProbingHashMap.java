@@ -8,30 +8,32 @@ public class ProbingHashMap <E> {
     private static final int[] possibleCapacities = { 401, 809, 1619, 3251, 6521, 13043, 26099, 52201, 104417 };
     private static int capacityIndex = 0;
 
-    private Class<?> itemClass;
 
+     ProbingHashMap() {
 
-     ProbingHashMap(Class<E> clazz) {
-        storage = (HashMapNode<E>[]) Array.newInstance(HashMapNode.class, 401);
-        capacity = 401;
-        itemClass = clazz;
+         // this ugly looking array creation is needed to create a generic array
+         // reflection is used to solve the problem of type inference of generics
+         storage = (HashMapNode<E>[]) Array.newInstance(HashMapNode.class, 401);
+         capacity = 401;
     }
 
-    ProbingHashMap(Class<E> clazz, int initialCapacity) {
-        storage = (HashMapNode<E>[]) Array.newInstance(clazz, initialCapacity);
+    ProbingHashMap(int initialCapacity) {
+
+        // this ugly looking array creation is needed to create a generic array
+        // reflection is used to solve the problem of type inference of generics
+        storage = (HashMapNode<E>[]) Array.newInstance(HashMapNode.class, initialCapacity);
         capacity = initialCapacity;
-        itemClass = clazz;
     }
 
-    public void insert(E item)  {
+    public void insert(int key, E item)  {
 
          if (size == capacity) {
              this.doubleTheStorage();
          }
 
          int probingCounter = 0;
-        int firstHash = Hashing.getFirstHash(item, capacity);
-        int secondHash = Hashing.getSecondHash(item, capacity);
+         int firstHash = Hashing.getFirstHashWithKey(key, capacity);
+         int secondHash = Hashing.getSecondHashWithKey(key, capacity);
 
          // runs until we place the item to a slot
          while (true) {
@@ -64,6 +66,10 @@ public class ProbingHashMap <E> {
          }
 
 
+    }
+
+    public void insert(E item) {
+         this.insert(item.hashCode(), item);
     }
 
     public E remove(int key) {
@@ -142,13 +148,15 @@ public class ProbingHashMap <E> {
 
     private void doubleTheStorage() {
 
-         // choose the next capacity plateau
-         capacityIndex++;
+         // find a suitable capacity
+         while (possibleCapacities[capacityIndex] <= capacity) {
+             capacityIndex++;
+         }
 
          int newCapacity = possibleCapacities[capacityIndex];
 
          // create a new, bigger array to store the elements
-         HashMapNode<E>[] newStorage = (HashMapNode<E>[]) Array.newInstance(itemClass, newCapacity);
+         HashMapNode<E>[] newStorage = (HashMapNode<E>[]) Array.newInstance(HashMapNode.class, newCapacity);
 
          // keep the reference of the old storage
          HashMapNode<E>[] oldStorage = storage;
