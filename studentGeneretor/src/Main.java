@@ -47,6 +47,11 @@ public class Main {
             probingMap.insert(s);
         }
 
+        for (int i = 0; i < 100; i++) {
+            System.err.println("aranan id: " + studentsList.get(i).ID);
+            System.err.println("bulunan ID: " + probingMap.get(studentsList.get(i).ID).ID + "\n");
+        }
+
 
     }
 }
