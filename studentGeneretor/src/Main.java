@@ -41,17 +41,87 @@ public class Main {
 
         }
 
+        int[] randomIndices = new int[100];
+
+        // generate random incides to make searching more fun
+        for (int i = 0; i < 100; i++) {
+            randomIndices[i] = (int)(Math.random() * 81000);
+        }
+
+
+
+        long start; // starting time for a time measurement
+        long end;   // ending time for a time measurement
+
+        ChainingHashMap<Student> chainingMap = new ChainingHashMap<>();
+
+        start = System.currentTimeMillis();
+
+        // insert students into chainingHashMap
+        for (Student s : studentsList) {
+            chainingMap.insert(s);
+        }
+
+        end = System.currentTimeMillis();
+
+        System.out.println(
+                "Inserting the database into the chaining hash map has taken: " +
+                 (end-start) + " ms\n"
+        );
+
+        start = System.currentTimeMillis();
+
+
+        Student searchResult = null;
+
+        // search random 100 students from the map
+        for (int i : randomIndices) {
+            searchResult = chainingMap.get(studentsList.get(i).ID);
+        }
+
+        end = System.currentTimeMillis();
+
+        System.out.println(
+                "Searching 100 random items from the chaining hash map has taken: " +
+                        (end-start) + " ms\n"
+        );
+
+
+
         ProbingHashMap<Student> probingMap = new ProbingHashMap<>();
 
-        for (var s : studentsList) {
+        start = System.currentTimeMillis();
+
+        // insert students into probingHashMap
+        for (Student s : studentsList) {
             probingMap.insert(s);
         }
 
-        for (int i = 0; i < 100; i++) {
-            System.err.println("aranan id: " + studentsList.get(i).ID);
-            System.err.println("bulunan ID: " + probingMap.get(studentsList.get(i).ID).ID + "\n");
+        end = System.currentTimeMillis();
+
+        System.out.println(
+                "Inserting the database into the probing hash map has taken: " +
+                        (end-start) + " ms\n"
+        );
+
+        start = System.currentTimeMillis();
+
+
+        // trying to prevent compiler from 'optimizing' searches by
+        // not executing them
+        searchResult = null;
+
+        // search random 100 students from the map
+        for (int i : randomIndices) {
+            searchResult = probingMap.get(studentsList.get(i).ID);
         }
 
+        end = System.currentTimeMillis();
+
+        System.out.println(
+                "Searching 100 random items from the probing hash map has taken: " +
+                        (end-start) + " ms\n"
+        );
 
     }
 }
